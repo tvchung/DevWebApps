@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DevWebAppsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CATEGORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ICON" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IDPARENT" Type="Int64" />
+    <Property Name="SLUG" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
+    <Property Name="META_TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="META_KEYWORD" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="META_DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CREATED_BY" Type="Int64" />
+    <Property Name="UPDATED_BY" Type="Int64" />
+    <Property Name="ISDELETE" Type="Byte" />
+    <Property Name="ISACTIVE" Type="Byte" />
+  </EntityType>
+  <EntityContainer Name="DevWebAppsDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" />
+  </EntityContainer>
+</Schema>
