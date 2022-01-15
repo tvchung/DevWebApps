@@ -13,96 +13,98 @@
             {
                 @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
+            <div class="form-horizontal row">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.NAME, htmlAttributes: new { @class = "control-label col-md-12" })
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                <div class="col-md-6">
+                    <div class="form-group d-flex">
+                        @Html.LabelFor(model => model.NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group d-flex">
+                        @Html.LabelFor(model => model.NOTES, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NOTES, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NOTES, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group d-flex">
+                        @Html.LabelFor(model => model.ICON, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ICON, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ICON, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group d-flex">
+                        @Html.LabelFor(model => model.IDPARENT, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.IDPARENT, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.IDPARENT, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group d-flex">
+                        @Html.LabelFor(model => model.ISACTIVE, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10 d-flex">
+                            <div class="d-flex align-items-center">
+                                <input type="radio" name="ISACTIVE" id="ISACTIVE1" value="0" checked />
+                                <label for="ISACTIVE1" class="text-success ml-1">Hoạt động</label>
+                            </div>
+                            <div class="d-flex align-items-center ml-2">
+                                <input type="radio" name="ISACTIVE" id="ISACTIVE2" value="1" />
+                                <label for="ISACTIVE2" class="text-danger ml-1">Đang khóa</label>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.ISACTIVE, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group d-flex ">
+                        @Html.LabelFor(model => model.SLUG, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SLUG, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SLUG, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.NOTES, htmlAttributes: new { @class = "control-label col-md-12" })
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.NOTES, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.NOTES, "", new { @class = "text-danger" })
+                    <div class="form-group d-flex">
+                        @Html.LabelFor(model => model.META_TITLE, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.META_TITLE, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.META_TITLE, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group d-flex">
+                        @Html.LabelFor(model => model.META_KEYWORD, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.META_KEYWORD, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.META_KEYWORD, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group d-flex">
+                        @Html.LabelFor(model => model.META_DESCRIPTION, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <textarea name="META_DESCRIPTION" id="META_DESCRIPTION" class="form-control"></textarea>
+                            @Html.ValidationMessageFor(model => model.META_DESCRIPTION, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ICON, htmlAttributes: new { @class = "control-label col-md-12" })
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.ICON, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ICON, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IDPARENT, htmlAttributes: new { @class = "control-label col-md-12" })
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.IDPARENT, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.IDPARENT, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.SLUG, htmlAttributes: new { @class = "control-label col-md-12" })
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.SLUG, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.SLUG, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.META_TITLE, htmlAttributes: new { @class = "control-label col-md-12" })
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.META_TITLE, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.META_TITLE, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.META_KEYWORD, htmlAttributes: new { @class = "control-label col-md-12" })
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.META_KEYWORD, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.META_KEYWORD, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.META_DESCRIPTION, htmlAttributes: new { @class = "control-label col-md-12" })
-                    <div class="col-md-12">
-                        <textarea name="META_DESCRIPTION" id="META_DESCRIPTION" class="form-control"></textarea>
-                        @Html.ValidationMessageFor(model => model.META_DESCRIPTION, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-            
-                <div class="form-group">
-                    <label for="ISACTIVE">Trạng thái</label>
-                    <div class="col-md-12">
-                        <input type="radio" name="ISACTIVE" id="ISACTIVE1" value="1" checked/>
-                        <label for="ISACTIVE1">Hoạt động</label>
-                        <input type="radio" name="ISACTIVE" id="ISACTIVE2" value="0" />
-                        <label for="ISACTIVE2">Đang khóa</label>
-
-                        @Html.ValidationMessageFor(model => model.ISACTIVE, "", new { @class = "text-danger" })
-
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-12">
-                        <input type="submit" value="Create" class="btn btn-default" />
+                
+                <div class="form-group w-100">
+                    <div class="col-md-12 d-flex justify-content-end">
+                        <input type="submit" value="Ghi lại" class="btn btn-success mr-1" />
+                        <a href="index" class="btn btn-danger mx-1">Quay lại</a>
                     </div>
                 </div>
             </div>
             }
 
-            <div>
-                @Html.ActionLink("Back to List", "Index")
-            </div>
-</div>
-</div>
+        </div>
+    </div>
 </div>

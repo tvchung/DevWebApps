@@ -1,0 +1,17 @@
+﻿.tac-vu, .is-active {
+    width: 7rem;
+}
+.tac-vu a {
+    text-decoration:none;
+    color:#808080
+}
+    .tac-vu a i{
+        padding:.25rem;
+    }
+
+label:not(.form-check-label):not(.custom-file-label) {
+   font-weight: normal !important;
+   margin-bottom:0;
+   display:flex;
+   align-items:center;
+}
