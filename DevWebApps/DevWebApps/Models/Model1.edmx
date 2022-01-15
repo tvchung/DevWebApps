@@ -4,8 +4,38 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DevWebAppsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DevWebAppsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="500" />
+          <Property Name="NOTES" Type="ntext" />
+          <Property Name="ICON" Type="nvarchar" MaxLength="250" />
+          <Property Name="IDPARENT" Type="bigint" />
+          <Property Name="SLUG" Type="nvarchar" MaxLength="160" />
+          <Property Name="META_TITLE" Type="nvarchar" MaxLength="100" />
+          <Property Name="META_KEYWORD" Type="nvarchar" MaxLength="500" />
+          <Property Name="META_DESCRIPTION" Type="nvarchar" MaxLength="500" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="bigint" />
+          <Property Name="UPDATED_BY" Type="bigint" />
+          <Property Name="ISDELETE" Type="tinyint" />
+          <Property Name="ISACTIVE" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="CONFIGURATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="500" />
+          <Property Name="NOTES" Type="ntext" />
+          <Property Name="ISDELETE" Type="tinyint" />
+          <Property Name="ISACTIVE" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="NEWS_CATEGORY">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -27,9 +57,10 @@
         </EntityType>
         <EntityContainer Name="DevWebAppsDBModelStoreContainer">
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONFIGURATIONS" EntityType="Self.CONFIGURATIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NEWS_CATEGORY" EntityType="Self.NEWS_CATEGORY" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DevWebAppsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -55,7 +86,39 @@
         </EntityType>
         <EntityContainer Name="DevWebAppsDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" />
+          <EntitySet Name="NEWS_CATEGORY" EntityType="DevWebAppsDBModel.NEWS_CATEGORY" />
+          <EntitySet Name="CONFIGURATIONS" EntityType="DevWebAppsDBModel.CONFIGURATIONS" />
         </EntityContainer>
+        <EntityType Name="NEWS_CATEGORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ICON" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IDPARENT" Type="Int64" />
+          <Property Name="SLUG" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
+          <Property Name="META_TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="META_KEYWORD" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="META_DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int64" />
+          <Property Name="UPDATED_BY" Type="Int64" />
+          <Property Name="ISDELETE" Type="Byte" />
+          <Property Name="ISACTIVE" Type="Byte" />
+        </EntityType>
+        <EntityType Name="CONFIGURATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISDELETE" Type="Byte" />
+          <Property Name="ISACTIVE" Type="Byte" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -80,6 +143,38 @@
                 <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
                 <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
                 <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NEWS_CATEGORY">
+            <EntityTypeMapping TypeName="DevWebAppsDBModel.NEWS_CATEGORY">
+              <MappingFragment StoreEntitySet="NEWS_CATEGORY">
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="META_DESCRIPTION" ColumnName="META_DESCRIPTION" />
+                <ScalarProperty Name="META_KEYWORD" ColumnName="META_KEYWORD" />
+                <ScalarProperty Name="META_TITLE" ColumnName="META_TITLE" />
+                <ScalarProperty Name="SLUG" ColumnName="SLUG" />
+                <ScalarProperty Name="IDPARENT" ColumnName="IDPARENT" />
+                <ScalarProperty Name="ICON" ColumnName="ICON" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONFIGURATIONS">
+            <EntityTypeMapping TypeName="DevWebAppsDBModel.CONFIGURATIONS">
+              <MappingFragment StoreEntitySet="CONFIGURATIONS">
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

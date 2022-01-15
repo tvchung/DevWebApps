@@ -1,0 +1,131 @@
+﻿@model DevWebApps.Models.NEWS_CATEGORY
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NEWS_CATEGORY</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOTES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOTES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPARENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDPARENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLUG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLUG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.META_TITLE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.META_TITLE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.META_KEYWORD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.META_KEYWORD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.META_DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.META_DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CREATED_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CREATED_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UPDATED_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UPDATED_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CREATED_BY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CREATED_BY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UPDATED_BY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UPDATED_BY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISDELETE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISDELETE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISACTIVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISACTIVE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

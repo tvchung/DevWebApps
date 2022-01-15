@@ -131,6 +131,8 @@
     <Compile Include="Areas\Admins\AdminsAreaRegistration.cs" />
     <Compile Include="Areas\Admins\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Admins\Controllers\CATEGORiesController.cs" />
+    <Compile Include="Areas\Admins\Controllers\CONFIGURATIONSController.cs" />
+    <Compile Include="Areas\Admins\Controllers\NEWS_CATEGORYController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -138,7 +140,11 @@
     <Compile Include="Models\CATEGORY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CONFIGURATIONS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Metadata\CATEGORYMetadata.cs" />
+    <Compile Include="Models\Metadata\CONFIGURATIONSMetadata.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -153,6 +159,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NEWS_CATEGORY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2248,6 +2257,16 @@
     <Content Include="Areas\Admins\Views\CATEGORies\Details.cshtml" />
     <Content Include="Areas\Admins\Views\CATEGORies\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\CATEGORies\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\NEWS_CATEGORY\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\NEWS_CATEGORY\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\NEWS_CATEGORY\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\NEWS_CATEGORY\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\NEWS_CATEGORY\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\CONFIGURATIONS\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\CONFIGURATIONS\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\CONFIGURATIONS\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\CONFIGURATIONS\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\CONFIGURATIONS\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

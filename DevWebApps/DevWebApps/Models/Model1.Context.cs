@@ -26,5 +26,7 @@ namespace DevWebApps.Models
         }
     
         public virtual DbSet<CATEGORY> CATEGORY { get; set; }
+        public virtual DbSet<NEWS_CATEGORY> NEWS_CATEGORY { get; set; }
+        public virtual DbSet<CONFIGURATIONS> CONFIGURATIONS { get; set; }
     }
 }

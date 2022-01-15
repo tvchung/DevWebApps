@@ -22,5 +22,37 @@
   </EntityType>
   <EntityContainer Name="DevWebAppsDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" />
+    <EntitySet Name="NEWS_CATEGORY" EntityType="DevWebAppsDBModel.NEWS_CATEGORY" />
+    <EntitySet Name="CONFIGURATIONS" EntityType="DevWebAppsDBModel.CONFIGURATIONS" />
   </EntityContainer>
+  <EntityType Name="NEWS_CATEGORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ICON" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IDPARENT" Type="Int64" />
+    <Property Name="SLUG" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
+    <Property Name="META_TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="META_KEYWORD" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="META_DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CREATED_BY" Type="Int64" />
+    <Property Name="UPDATED_BY" Type="Int64" />
+    <Property Name="ISDELETE" Type="Byte" />
+    <Property Name="ISACTIVE" Type="Byte" />
+  </EntityType>
+  <EntityType Name="CONFIGURATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ISDELETE" Type="Byte" />
+    <Property Name="ISACTIVE" Type="Byte" />
+  </EntityType>
 </Schema>

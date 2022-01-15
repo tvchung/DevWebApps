@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="c766733863f04c96811a841748a0e403" Name="Diagram1" ZoomLevel="92">
         <EntityTypeShape EntityType="DevWebAppsDBModel.CATEGORY" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevWebAppsDBModel.NEWS_CATEGORY" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DevWebAppsDBModel.CONFIGURATIONS" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
