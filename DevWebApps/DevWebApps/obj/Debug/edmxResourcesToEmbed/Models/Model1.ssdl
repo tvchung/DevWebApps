@@ -20,7 +20,39 @@
     <Property Name="ISDELETE" Type="tinyint" />
     <Property Name="ISACTIVE" Type="tinyint" />
   </EntityType>
+  <EntityType Name="CONFIGURATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="500" />
+    <Property Name="NOTES" Type="ntext" />
+    <Property Name="ISDELETE" Type="tinyint" />
+    <Property Name="ISACTIVE" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="NEWS_CATEGORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="500" />
+    <Property Name="NOTES" Type="ntext" />
+    <Property Name="ICON" Type="nvarchar" MaxLength="250" />
+    <Property Name="IDPARENT" Type="bigint" />
+    <Property Name="SLUG" Type="nvarchar" MaxLength="160" />
+    <Property Name="META_TITLE" Type="nvarchar" MaxLength="100" />
+    <Property Name="META_KEYWORD" Type="nvarchar" MaxLength="500" />
+    <Property Name="META_DESCRIPTION" Type="nvarchar" MaxLength="500" />
+    <Property Name="CREATED_DATE" Type="datetime" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+    <Property Name="CREATED_BY" Type="bigint" />
+    <Property Name="UPDATED_BY" Type="bigint" />
+    <Property Name="ISDELETE" Type="tinyint" />
+    <Property Name="ISACTIVE" Type="tinyint" />
+  </EntityType>
   <EntityContainer Name="DevWebAppsDBModelStoreContainer">
     <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONFIGURATIONS" EntityType="Self.CONFIGURATIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NEWS_CATEGORY" EntityType="Self.NEWS_CATEGORY" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

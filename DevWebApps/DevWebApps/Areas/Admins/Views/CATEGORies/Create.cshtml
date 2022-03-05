@@ -43,7 +43,20 @@
                     <div class="form-group d-flex">
                         @Html.LabelFor(model => model.IDPARENT, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.IDPARENT, new { htmlAttributes = new { @class = "form-control" } })
+                            @*@Html.EditorFor(model => model.IDPARENT, new { htmlAttributes = new { @class = "form-control" } })*@
+
+                            <select id="IDPARENT" name="IDPARENT" class="form-control">
+                                <option value="0">---Danh mục gốc---</option>
+                                @if(ViewBag.Category != null)
+                                {
+                                    var dataCate = ViewBag.Category as List<DevWebApps.Models.CATEGORY>;
+                                    foreach (var item in dataCate)
+                                    {
+                                        <option value="@item.ID">@item.NAME</option>
+                                    }
+                                }
+                            </select>
+
                             @Html.ValidationMessageFor(model => model.IDPARENT, "", new { @class = "text-danger" })
                         </div>
                     </div>

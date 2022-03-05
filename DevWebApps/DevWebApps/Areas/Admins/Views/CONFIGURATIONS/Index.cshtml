@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DevWebApps.Models.CONFIGURATIONS>
+
+@{
+    ViewBag.Title = "Danh mục cấu hình sản phẩm";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h3 class="card-title w-25"></h3>
+            <div class="d-flex justify-content-end w-75">
+                <a href="/admins/configurations/create">Thêm mới</a>
+            </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NAME)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NOTES)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ISDELETE)
+                        </th>
+                        <th class="is-active">
+                            @Html.DisplayNameFor(model => model.ISACTIVE)
+                        </th>
+                        <th class="tac-vu">Tác vụ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NOTES)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ISDELETE)
+                        </td>
+                        <td class="is-active">
+                            @if (item.ISACTIVE == 0)
+                            {
+                                <span class="text-success"> Hoạt động </span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">Đang khóa</span>
+                            }
+                        </td>
+
+                        <td class="text-center tac-vu">
+                            <a href="/admins/configurations/edit/@item.ID">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="/admins/configurations/details/@item.ID">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="/admins/configurations/Delete/@item.ID">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>

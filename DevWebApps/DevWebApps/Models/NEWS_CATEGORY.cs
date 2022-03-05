@@ -12,7 +12,7 @@ namespace DevWebApps.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CATEGORY
+    public partial class NEWS_CATEGORY
     {
         public long ID { get; set; }
         public string NAME { get; set; }

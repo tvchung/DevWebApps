@@ -1,0 +1,51 @@
+﻿@model DevWebApps.Models.CONFIGURATIONS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CONFIGURATIONS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOTES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOTES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISDELETE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISDELETE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISACTIVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISACTIVE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

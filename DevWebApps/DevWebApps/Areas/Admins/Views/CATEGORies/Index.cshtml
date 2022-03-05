@@ -9,7 +9,7 @@
         <div class="card-header d-flex justify-content-between">
             <h3 class="card-title w-25"></h3>
             <div class="d-flex justify-content-end w-75">
-                <a href="create" >Thêm mới</a>
+                <a href="/admins/categories/create" >Thêm mới</a>
             </div>
         </div>
         <!-- /.card-header -->
@@ -72,19 +72,17 @@
                                 }
                                 else
                                 {
-                                        <span class="text-danger">
-                                            Đang khóa
-                                        </span>
+                                        <span class="text-danger">Đang khóa</span>
                                  }
                             </td>
                             <td class="text-center tac-vu">
-                                <a href="categories/edit/@item.ID">
+                                <a href="/admins/categories/edit/@item.ID">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="categories/details/@item.ID">
+                                <a href="/admins/categories/details/@item.ID">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="categories/Delete/@item.ID">
+                                <a href="/admins/categories/Delete/@item.ID">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>

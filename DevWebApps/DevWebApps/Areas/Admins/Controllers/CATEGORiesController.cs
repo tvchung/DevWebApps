@@ -33,12 +33,16 @@ namespace DevWebApps.Areas.Admins.Controllers
             {
                 return HttpNotFound();
             }
+            // tạo nguồn dữ liệu cho danh mục
+            ViewBag.Category = db.CATEGORY.Where(x => x.ISDELETE == 0 && x.ISACTIVE == 0 && x.IDPARENT == null).ToList();
             return View(cATEGORY);
         }
 
         // GET: Admins/CATEGORies/Create
         public ActionResult Create()
         {
+            // tạo nguồn dữ liệu cho danh mục
+            ViewBag.Category = db.CATEGORY.Where(x =>x.ISDELETE==0 && x.ISACTIVE ==0 && x.IDPARENT == null).ToList();
             return View();
         }
 
@@ -49,6 +53,8 @@ namespace DevWebApps.Areas.Admins.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,NAME,NOTES,ICON,IDPARENT,SLUG,META_TITLE,META_KEYWORD,META_DESCRIPTION,CREATED_DATE,UPDATED_DATE,CREATED_BY,UPDATED_BY,ISDELETE,ISACTIVE")] CATEGORY cATEGORY)
         {
+            if (cATEGORY.IDPARENT.Value==0)
+                cATEGORY.IDPARENT = null; 
             if (ModelState.IsValid)
             {
                 if (cATEGORY.CREATED_DATE == null) cATEGORY.CREATED_DATE = DateTime.Now;
@@ -74,10 +80,13 @@ namespace DevWebApps.Areas.Admins.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CATEGORY cATEGORY = db.CATEGORY.Find(id);
+
             if (cATEGORY == null)
             {
                 return HttpNotFound();
             }
+            // tạo nguồn dữ liệu cho danh mục
+            ViewBag.Category = db.CATEGORY.Where(x => x.ISDELETE == 0 && x.ISACTIVE == 0 && x.IDPARENT == null).ToList();
             return View(cATEGORY);
         }
 
@@ -109,6 +118,9 @@ namespace DevWebApps.Areas.Admins.Controllers
             {
                 return HttpNotFound();
             }
+
+            // tạo nguồn dữ liệu cho danh mục
+            ViewBag.Category = db.CATEGORY.Where(x => x.ISDELETE == 0 && x.ISACTIVE == 0 && x.IDPARENT == null).ToList();
             return View(cATEGORY);
         }
 

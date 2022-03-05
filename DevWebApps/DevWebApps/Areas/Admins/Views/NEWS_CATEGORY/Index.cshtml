@@ -1,0 +1,112 @@
+﻿@model IEnumerable<DevWebApps.Models.NEWS_CATEGORY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOTES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ICON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDPARENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SLUG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.META_TITLE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.META_KEYWORD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.META_DESCRIPTION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CREATED_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UPDATED_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CREATED_BY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UPDATED_BY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISDELETE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISACTIVE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOTES)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ICON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDPARENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SLUG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.META_TITLE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.META_KEYWORD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.META_DESCRIPTION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CREATED_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UPDATED_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CREATED_BY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UPDATED_BY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISDELETE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISACTIVE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
