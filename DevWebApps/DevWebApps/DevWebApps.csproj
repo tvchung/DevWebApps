@@ -133,6 +133,7 @@
     <Compile Include="Areas\Admins\Controllers\CATEGORiesController.cs" />
     <Compile Include="Areas\Admins\Controllers\CONFIGURATIONSController.cs" />
     <Compile Include="Areas\Admins\Controllers\NEWS_CATEGORYController.cs" />
+    <Compile Include="Areas\Admins\Controllers\PAYMENT_METHODController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -143,6 +144,7 @@
     <Compile Include="Models\CONFIGURATIONS.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Metadata\PAYMENT_METHODMetadata.cs" />
     <Compile Include="Models\Metadata\CATEGORYMetadata.cs" />
     <Compile Include="Models\Metadata\CONFIGURATIONSMetadata.cs" />
     <Compile Include="Models\Model1.Context.cs">
@@ -161,6 +163,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\NEWS_CATEGORY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PAYMENT_METHOD.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2267,6 +2272,8 @@
     <Content Include="Areas\Admins\Views\CONFIGURATIONS\Details.cshtml" />
     <Content Include="Areas\Admins\Views\CONFIGURATIONS\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\CONFIGURATIONS\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\PAYMENT_METHOD\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\PAYMENT_METHOD\_Create.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

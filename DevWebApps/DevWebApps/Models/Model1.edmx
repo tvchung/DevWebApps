@@ -55,10 +55,23 @@
           <Property Name="ISDELETE" Type="tinyint" />
           <Property Name="ISACTIVE" Type="tinyint" />
         </EntityType>
+        <EntityType Name="PAYMENT_METHOD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="NOTES" Type="ntext" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="ISDELETE" Type="tinyint" />
+          <Property Name="ISACTIVE" Type="tinyint" />
+        </EntityType>
         <EntityContainer Name="DevWebAppsDBModelStoreContainer">
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONFIGURATIONS" EntityType="Self.CONFIGURATIONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NEWS_CATEGORY" EntityType="Self.NEWS_CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAYMENT_METHOD" EntityType="Self.PAYMENT_METHOD" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -88,6 +101,7 @@
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" />
           <EntitySet Name="NEWS_CATEGORY" EntityType="DevWebAppsDBModel.NEWS_CATEGORY" />
           <EntitySet Name="CONFIGURATIONS" EntityType="DevWebAppsDBModel.CONFIGURATIONS" />
+          <EntitySet Name="PAYMENT_METHOD" EntityType="DevWebAppsDBModel.PAYMENT_METHOD" />
         </EntityContainer>
         <EntityType Name="NEWS_CATEGORY">
           <Key>
@@ -116,6 +130,18 @@
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISDELETE" Type="Byte" />
+          <Property Name="ISACTIVE" Type="Byte" />
+        </EntityType>
+        <EntityType Name="PAYMENT_METHOD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="ISDELETE" Type="Byte" />
           <Property Name="ISACTIVE" Type="Byte" />
         </EntityType>
@@ -172,6 +198,19 @@
               <MappingFragment StoreEntitySet="CONFIGURATIONS">
                 <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
                 <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAYMENT_METHOD">
+            <EntityTypeMapping TypeName="DevWebAppsDBModel.PAYMENT_METHOD">
+              <MappingFragment StoreEntitySet="PAYMENT_METHOD">
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
                 <ScalarProperty Name="NOTES" ColumnName="NOTES" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="ID" ColumnName="ID" />

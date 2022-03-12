@@ -1,0 +1,169 @@
+﻿@{
+    ViewBag.Title = "Quản lý phương thức thanh toán";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h3 class="card-title w-25"></h3>
+            <div class="d-flex justify-content-end w-75">
+                @*<a href="#" data-toggle="modal" data-target="#paymentModal">Thêm mới</a>*@
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#paymentModal">
+                    Thêm mới
+                </button>
+            </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered datalist">
+                <thead>
+                    <tr>
+                        <th>Mã</th>
+                        <th> Tên</th>
+                        <th>Ghi chú</th>
+                        <th>Ngày tạo</th>
+                        <th>Ngày sửa</th>
+                        <th>Đã xóa</th>
+                        <th>Trạng thái</th>
+                        <th class="tac-vu">Tác vụ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*<tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
+                            <td class="text-center tac-vu">
+                                <a href="">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>*@
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>
+
+@Html.Partial("_Create")
+
+@section scripts {
+    <script src="/Content/plugins/jquery/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var data = [];
+        $(document).ready(function () {
+            //console.log("ready!");
+            //alert("hahaha");
+
+            // load dữ liệu từ db
+            $.ajax({
+                url: '/admins/payment_method/GetData',
+                type: "GET",
+                dataType: "json",
+
+                success: function (res) {
+                    // dữ liệu trả về, sẻ được hiển thị lên trang html
+                    data = res;
+                    console.log(data);
+                    fillData(data);
+                }
+            });
+
+            function fillData(res) {
+                $('table.datalist tbody').html('');
+                for (var i = 0; i < res.length; i++) {
+                    let obj = res[i];
+                    let CREATED_DATE = '';
+                    let UPDATED_DATE = '';
+                    if (obj.CREATED_DATE != null)
+                        CREATED_DATE = (new Date(parseInt(obj.CREATED_DATE.substr(6)))).toLocaleDateString();
+                    if (obj.UPDATED_DATE != null)
+                        UPDATED_DATE = (new Date(parseInt(obj.UPDATED_DATE.substr(6)))).toLocaleDateString();
+                    let row = `
+                                <tr>
+                                    <td>${obj.ID}</td>
+                                    <td>${obj.NAME}</td>
+                                    <td>${obj.NOTES}</td>
+                                    <td>${CREATED_DATE}</td>
+                                    <td>${UPDATED_DATE}</td>
+                                    <td>${obj.ISDELETE}</td>
+                                    <td>${obj.ISACTIVE}</td>
+
+                                    <td class="text-center tac-vu">
+                                        <a href="">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            `;
+
+                    $('table.datalist tbody').append(row);
+                }
+            }
+        });
+
+
+        // thêm mới
+        $(document).ready(function () {
+            // khi người dùng click vào nút Sava Change trên modal
+            var payment = new Object();
+
+            $('.btnSave').click(function () {
+                // kiểm tra dữ liệu người dùng nhập
+
+                // Lấy dữ liệu trên form, gán vào biến payment
+                payment["NAME"] = $('form.frmCreate input[name="NAME"]').val();
+                payment["NOTES"] = $('form.frmCreate textarea[name="NOTES"]').val();
+                if ($('form.frmCreate input[name="ISACTIVE"]').prop('checked') == true) {
+                    payment["ISACTIVE"] = 0;
+                } else {
+                    payment["ISACTIVE"] = 1;
+                }
+
+                //payment["ISACTIVE"] = $('form.frmCreate input[name="ISACTIVE"]').val();
+
+                $.ajax({
+                    url: '/admins/payment_method/Create',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        payment: payment
+                    },
+                    success: function (res) {
+
+                        if (res == "1") {
+                            swal("Thêm mới thành công!").then(() => {
+                                $('#paymentModal').hide();
+                                $(".modal-backdrop").remove();
+                            });
+                        }
+
+                    }
+                });
+
+
+            });
+        });
+
+    </script>
+
+}
